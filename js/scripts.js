@@ -1,17 +1,30 @@
 $(document).ready(function(){
-  $("#getQuote").on("click", function(e){
-    e.preventDefault();
+  var quote="";
+  var author="";
+  function getQuote() {
     $.ajax({
-      url: "http://api.forismatic.com/api/1.0/?method=getQuote&key=457653&format=json&lang=en",
-      success: function(json) {
-        console.log(json.quoteAuthor.length)
-        var quoteText = json.quoteText;
-        var quoteAuthor = json.quoteAuthor.length > 0 ? json.quoteAuthor : "Anonymous";
-        $("#quote").html(quoteText);
-        $("#title").html("-" + quoteAuthor);
-        $('#tweet').attr('href', 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('"' + quoteText + '" -' + quoteAuthor));
+      headers: {
+        "X-Mashape-Key": "OivH71yd3tmshl9YKzFH7BTzBVRQp1RaKLajsnafgL2aPsfP9V",
+        Accept: "application/json",
+        "Content-Type": "application/x-www-form-urlencoded"
       },
-      cache: false
+      url: 'https://andruxnet-random-famous-quotes.p.mashape.com/cat=',
+      success: function(response) {
+        var r = JSON.parse(response);
+        quote = r.quote;
+        author = r.author;
+        $(".quote").html(quote);
+        $(".author").html("- " + author);
+      }
     });
+  };
+  getQuote();
+  $("#nextQuote").on("click", function(e){
+    e.preventDefault();
+    getQuote();
+  });
+  $("#tweet-button").on("click", function(e) {
+    //e.preventDefault();
+    window.open('https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent('"' + quote + '" -' + author));
   });
 });
