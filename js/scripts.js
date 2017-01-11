@@ -1,6 +1,7 @@
 $(document).ready(function(){
   var quote="";
   var author="";
+
   function getQuote() {
     $.ajax({
       headers: {
@@ -19,12 +20,12 @@ $(document).ready(function(){
     });
   };
   getQuote();
-  $("#nextQuote").on("click", function(e){
+  $(".next-quote-button").on("click", function(e){
     e.preventDefault();
     getQuote();
   });
-  $("#tweet-button").on("click", function(e) {
-    //e.preventDefault();
+  $(".tweet-button").on("click", function(e) {
+    e.preventDefault();
     window.open('https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=' + encodeURIComponent('"' + quote + '" -' + author));
   });
 });

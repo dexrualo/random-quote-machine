@@ -1,41 +1,57 @@
 body {
-  background-color: black;
+  background-color: #3F51B5;
   font-family: 'Exo', sans-serif;
 }
 .box {
-  background-color: lightgray;
-  border-radius: 20px;
-  display: flex;
-  height: auto;
-  min-height: 500px;
-  margin: 40px 40px;
-  width: auto;
-  justify-content: space-between;
   align-content: center;
   align-items: center;
+  background-color: #EFEFEF;
+  border-radius: 20px;
+  color: #757575;
+  display: flex;
   flex-flow: column nowrap;
-}
-.buttons {
-  padding-bottom: 30px;
+  height: auto;
+  justify-content: space-between;
+  margin: 50px 50px;
+  min-height: 400px;
+  min-width: 200px;
+  width: auto;
 }
 .quote {
-  padding: 0 50px;
+  flex: 3 1 auto;
   font-size: 2em;
-  flex: 1 1;
+  margin: 10px 30px;
 }
-.button {
-  font-size: 1.2em;
+.next-quote-button {
+  background-color: #3F51B5;
   border: none;
-  padding: 0.35em;
-  background-color: white;
+  color: #FDFBEC;
+  font-size: 1.2em;
 }
-#tweet-button{
-  padding: 0.24em 0.35em;
+.tweet-button{
+  background-color: #448AFF;
+  color: white;
+  font-size: 1.5em;
+  padding: 0.25em 0.35em;
 }
 .author {
-  flex: 0 1 20%;
+  flex: 1 1 auto;
   font-size: 1.5em;
+  margin: 10px 30px;
 }
 .header {
-  flex: 0 1 20%;
+  margin: 10px 30px;
+  text-align: center;
+}
+.buttons {
+  display:flex;
+  margin-bottom: 20px;
+}
+.footer p {
+  color: #FDFBEC;
+  line-height: 0.5em;
+  text-align: center;
+}
+.footer a {
+  color: #FDFBEC;
 }
